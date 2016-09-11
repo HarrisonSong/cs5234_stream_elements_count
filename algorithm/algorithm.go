@@ -11,6 +11,9 @@ func AlgorithmInitializer(hf hashing.HashingFamily, s []int, B int) Algorithm {
 	c := [][]int{}
 	for i := 0; i < hf.GetHashingFunctionNumber(); i++ {
 		c = append(c, make([]int, B))
+	}
+
+	for i := 0; i < hf.GetHashingFunctionNumber(); i++ {
 		hashFunction := hf.GethashingFunction(i)
 		for j := 0; j < len(s); j++ {
 			c[i][hashFunction(s[j])]++
